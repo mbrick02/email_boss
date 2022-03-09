@@ -1,6 +1,6 @@
 <?php
 class Email_test extends Trongate {
-	
+
 	function test() {
 		$email_data = $this->_build_email_data();
 
@@ -40,7 +40,7 @@ class Email_test extends Trongate {
 	function _build_email_data() {
 		// build some test data for imaginary forgot password scenario
 
-		// build some test data for imaginary forgot password scenario
+		// build some test data for imagined forgot password scenario
 		$data['subject'] = 'Reset Password Request';
 		$data['target_email'] = 'david.webguy@gmail.com';
 		$data['target_name'] = 'Davide Connelly';
