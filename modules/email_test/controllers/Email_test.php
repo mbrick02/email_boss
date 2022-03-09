@@ -14,7 +14,7 @@ class Email_test extends Trongate {
 
 		// Create the Transport = declare server settings
 		// username is username for logging into your email
-		$transport = (new Swift_SmtpTransport('smtp.siteprotect.com', 25))
+		$transport = (new Swift_SmtpTransport('smtp.siteprotect.com', 465))
 		  ->setUsername('donotreply')
 		  ->setPassword('your password')
 		;
