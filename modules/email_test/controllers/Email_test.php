@@ -9,31 +9,29 @@ class Email_test extends Trongate {
 
 	function _send_email($data) {
 		// send an email using SwiftMailer
+		extract($data);  // so we can say $subject rather than $data['subject']
 
 		// this in index.php: require_once '/path/to/vendor/autoload.php';
 
 		// Create the Transport = declare server settings
 		// username is username for logging into your email
 		$transport = (new Swift_SmtpTransport('smtp.siteprotect.com', 465))
-		  ->setUsername('donotreply')
-		  ->setPassword('your password')
+		  ->setUsername('donotreply@michaelbrickler.com')
+		  ->setPassword('Faust#2God')
 		;
-
-		/*
 
 		// Create the Mailer using your created Transport
 		$mailer = new Swift_Mailer($transport);
 
 		// Create a message
-		$message = (new Swift_Message('Wonderful Subject'))
-		  ->setFrom(['john@doe.com' => 'John Doe'])
-		  ->setTo(['receiver@domain.org', 'other@domain.org' => 'A name'])
+		$message = (new Swift_Message($subject))
+		  ->setFrom([$our_email_addres => $our_name])
+		  ->setTo([$target_email, $target_name])
 		  ->setBody('Here is the message itself')
 		  ;
 
 		// Send the message
 		$result = $mailer->send($message);
-		*/
 
 	}
 
