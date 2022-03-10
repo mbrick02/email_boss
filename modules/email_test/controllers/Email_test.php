@@ -4,7 +4,10 @@ class Email_test extends Trongate {
 	function test() {
 		$email_data = $this->_build_email_data();
 
-		// send the email
+		// send the email...
+		$this->_send_email($email_data);
+
+		echo 'Email was sent. Wooohooo!';
 	}
 
 	function _send_email($data) {
@@ -15,10 +18,10 @@ class Email_test extends Trongate {
 
 		// Create the Transport = declare server settings
 		// username is username for logging into your email
-		$transport = (new Swift_SmtpTransport('smtp.siteprotect.com', 465))
+		$transport = (new Swift_SmtpTransport('smtp.siteprotect.com', 465, 'ssl'))
 		  ->setUsername('donotreply@michaelbrickler.com')
-		  ->setPassword('Faust#2God')
-		;
+		  ->setPassword('Faust#2God');
+			// note: for an ssl 'transport' you have to end with ", 'ssl'"
 
 		// Create the Mailer using your created Transport
 		$mailer = new Swift_Mailer($transport);
@@ -27,8 +30,12 @@ class Email_test extends Trongate {
 		$message = (new Swift_Message($subject))
 		  ->setFrom([$our_email_addres => $our_name])
 		  ->setTo([$target_email, $target_name])
-		  ->setBody('Here is the message itself')
-		  ;
+
+			// Give it a body
+			->setBody($msg_plain, 'text/plain')
+
+			// And optionally an alternative body
+			->addPart($msg_html, 'text/html');
 
 		// Send the message
 		$result = $mailer->send($message);
