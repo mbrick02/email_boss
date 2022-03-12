@@ -1,0 +1,30 @@
+  .smaller {
+      font-size: 0.9em;
+  }
+
+  .large {
+      font-size: 1.2em;
+  }
+
+  .danger {
+      background-color: #ff0000;
+      border: 1px #ff0000 solid;
+  }
+
+  .danger:hover {
+      background-color: #dd0000;
+      border: 1px #dd0000 solid;
+  }
+
+  .gold {
+      background:linear-gradient(to right, #bf953f, #fcf6ba, #f0d69d, #fbf5b7, #aa771c);
+      border: 1px #bf953f solid;
+      color: #7f693b;
+      font-weight: bold;
+      text-transform: uppercase;
+  }
+
+  .gold:hover {
+      color: #645330;
+      border: 1px #645330 solid;
+  }
